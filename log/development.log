@@ -966,3 +966,15 @@ Processing by Api::HeroesController#index as JSON
 Completed 200 OK in 7ms (Views: 3.5ms | ActiveRecord: 1.5ms | Allocations: 2294)
 
 
+  [1m[36mHero Delete All (34.2ms)[0m  [1m[31mDELETE FROM "heroes"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5859725649159526725)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddTokenToHeroes (20230118231755)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (125.1ms)[0m  [1m[35mALTER TABLE "heroes" ADD "token" character varying NOT NULL[0m
+  [1m[35m (263.7ms)[0m  [1m[35mCREATE INDEX "index_heroes_on_token" ON "heroes" ("token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (3.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230118231755"]]
+  [1m[36mTRANSACTION (34.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (25.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5859725649159526725)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

@@ -427,3 +427,16 @@ Processing by Api::HeroesController#index as JSON
 Completed 200 OK in 27ms (Views: 2.9ms | ActiveRecord: 8.6ms | Allocations: 7137)
 
 
+Started POST "/api/heroes" for 127.0.0.1 at 2023-01-18 04:05:29 -0300
+Processing by Api::HeroesController#create as JSON
+  Parameters: {"name"=>"Wolverine", "hero"=>{"name"=>"Wolverine"}}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/heroes_controller.rb:20:in `create'
+  [1m[36mHero Create (2.0ms)[0m  [1m[32mINSERT INTO "heroes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Wolverine"], ["created_at", "2023-01-18 07:05:29.246002"], ["updated_at", "2023-01-18 07:05:29.246002"]]
+  ↳ app/controllers/api/heroes_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (27.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/heroes_controller.rb:20:in `create'
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 201 Created in 38ms (Views: 2.8ms | ActiveRecord: 38.6ms | Allocations: 4315)
+
+

@@ -299,3 +299,131 @@ Processing by HeroesController#index as */*
 Completed 200 OK in 27ms (Views: 26.7ms | ActiveRecord: 9.4ms | Allocations: 6178)
 
 
+Started GET "/heroes" for 127.0.0.1 at 2023-01-18 03:20:37 -0300
+  
+ActiveRecord::NoDatabaseError (We could not find your database: hero_api_development. Which can be found in the database configuration file located at config/database.yml.
+
+To resolve this issue:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+  
+activerecord (7.0.4) lib/active_record/connection_adapters/postgresql_adapter.rb:81:in `rescue in new_client'
+activerecord (7.0.4) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.4) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.4) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.4) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.4) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.4) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.4) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/heroes" for 127.0.0.1 at 2023-01-18 03:21:24 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HeroesController#index as */*
+  [1m[36mHero Load (1.8ms)[0m  [1m[34mSELECT "heroes".* FROM "heroes"[0m
+  ↳ app/controllers/heroes_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 19ms (Views: 9.2ms | ActiveRecord: 6.3ms | Allocations: 10046)
+
+
+Started GET "/heroes" for 127.0.0.1 at 2023-01-18 03:33:49 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/heroes"):
+  
+Started GET "/api/heroes" for 127.0.0.1 at 2023-01-18 03:33:56 -0300
+Processing by Api::HeroesController#index as */*
+  [1m[36mHero Load (1.0ms)[0m  [1m[34mSELECT "heroes".* FROM "heroes"[0m
+  ↳ app/controllers/api/heroes_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 17ms (Views: 7.7ms | ActiveRecord: 6.3ms | Allocations: 9237)
+
+
+Started GET "/api/heroes/5" for 127.0.0.1 at 2023-01-18 03:34:04 -0300
+Processing by Api::HeroesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mHero Load (0.7ms)[0m  [1m[34mSELECT "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/heroes_controller.rb:45:in `set_hero'
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.17ms)
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 1746)
+
+
+Started GET "/api/heroes" for 127.0.0.1 at 2023-01-18 03:42:10 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::HeroesController#index as JSON
+  [1m[36mHero Load (1.5ms)[0m  [1m[34mSELECT "heroes".* FROM "heroes"[0m
+  ↳ app/controllers/api/heroes_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 15ms (Views: 6.4ms | ActiveRecord: 6.2ms | Allocations: 9257)
+
+
+Started GET "/api/heroes" for 127.0.0.1 at 2023-01-18 03:43:10 -0300
+Processing by Api::HeroesController#index as JSON
+  [1m[36mHero Load (1.2ms)[0m  [1m[34mSELECT "heroes".* FROM "heroes"[0m
+  ↳ app/controllers/api/heroes_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 1.2ms | Allocations: 1566)
+
+
+Started GET "/api/heroes/5" for 127.0.0.1 at 2023-01-18 03:43:14 -0300
+Processing by Api::HeroesController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT "heroes".* FROM "heroes" WHERE "heroes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/heroes_controller.rb:45:in `set_hero'
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.14ms)
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.2ms | Allocations: 2613)
+
+
+Started GET "/api/heroes" for 127.0.0.1 at 2023-01-18 03:51:46 -0300
+Processing by Api::HeroesController#index as JSON
+  [1m[36mHero Load (1.1ms)[0m  [1m[34mSELECT "heroes".* FROM "heroes" ORDER BY "heroes"."name" ASC[0m
+  ↳ app/controllers/api/heroes_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 27ms (Views: 2.9ms | ActiveRecord: 8.6ms | Allocations: 7137)
+
+

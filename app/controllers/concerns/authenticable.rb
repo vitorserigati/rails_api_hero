@@ -5,12 +5,12 @@ module Authenticable
     @token ||= request.headers['Authorization']
 
     unless valid_token?
-      render json: { error: 'You do not have the required permission' },
+      render json: { error: 'Provide a header to identify yourself (At least 10 characters)' },
              status: :unauthorized
     end
   end
 
   def valid_token?
-    @token.present? && @token == Rails.application.credentials.token
+    @token.present? && @token.size >= 10
   end
 end

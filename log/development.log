@@ -440,3 +440,22 @@ Processing by Api::HeroesController#create as JSON
 Completed 201 Created in 38ms (Views: 2.8ms | ActiveRecord: 38.6ms | Allocations: 4315)
 
 
+Started GET "/api/heroes" for 127.0.0.1 at 2023-01-18 19:01:34 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (15.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::HeroesController#index as JSON
+  [1m[36mHero Load (18.6ms)[0m  [1m[34mSELECT "heroes".* FROM "heroes" ORDER BY "heroes"."name" ASC[0m
+  ↳ app/controllers/api/heroes_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.81ms)
+Completed 200 OK in 148ms (Views: 88.6ms | ActiveRecord: 42.6ms | Allocations: 9573)
+
+
+Started GET "/api/heroes?term=mAn" for 127.0.0.1 at 2023-01-18 19:11:08 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::HeroesController#index as JSON
+  Parameters: {"term"=>"mAn"}
+  [1m[36mHero Load (1.5ms)[0m  [1m[34mSELECT "heroes".* FROM "heroes" WHERE (LOWER(name) LIKE'%man%') ORDER BY "heroes"."name" ASC[0m
+  ↳ app/controllers/api/heroes_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 200 OK in 17ms (Views: 6.4ms | ActiveRecord: 6.4ms | Allocations: 9166)
+
+
